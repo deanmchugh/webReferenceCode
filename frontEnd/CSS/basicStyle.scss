@@ -1,0 +1,37 @@
+/*selector priority
+- id
+- class
+- tag
+*/
+
+/*variables*/
+:root {
+    --colour1: red;
+}
+
+$colour2: red;
+
+/*tag selector*/
+div  {
+    color: var(--colour);
+}
+
+/*multipul tag selector*/
+h1, h1, p {
+    color: $colour2;
+}
+
+/*nested selector*/
+div p { /*all <p> with a parant <div>*/
+    text-align: center;
+}
+
+/*class selector*/
+.commponentClass {
+    font-style: italic;
+}
+
+/*id selector*/
+#commponentID {
+    color: red;
+}

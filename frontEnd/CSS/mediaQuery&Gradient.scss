@@ -1,0 +1,11 @@
+/*change styles on screen width*/
+@media screen and (min-width: 480px) {
+    body {
+        background-color: green;
+    }
+}
+
+/*gradent color style*/
+body {
+    background: linear-gradient(red, yellow);
+}
