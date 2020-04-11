@@ -1,0 +1,41 @@
+<!DOCTYPE html>  
+<html lang="en"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Learning HTML</title> 
+        <meta name="description" content="HTML fundermentals">
+        <meta name="auther" content="Dean McHugh">
+    </head>
+    <body>
+        <header> 
+        </header>
+        <main> 
+            <img 
+                src="./puppy.png" 
+                alt="puppy"
+                height="100 px"
+                width="150 px"
+            />
+            <img 
+                src="./flowers.jpg" 
+                alt="flowers"
+                srcset="./flowers.jpg 500w, ./sun.jpg 250w"
+                sizes="1vw"
+            />
+            <picture>
+                <source 
+                    type="image/jpeg" 
+                    srcset="./flowers.jpg 500w, ./sun.jpg 250w"
+                    sizes="1vw"
+                />
+                <source 
+                    type="image/png" 
+                    srcset="./puppy.png 500w, ./sun.jpg 250w"
+                    sizes="1vw"
+                />
+            </picture>
+        </main>
+        <footer> 
+        </footer>
+    </body>
+</html>

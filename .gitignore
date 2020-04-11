@@ -121,4 +121,14 @@ psd
 thumb
 sketch
 
+# Media formats
+*.jpg
+*.png
+*.mp4
+*.mp3
+*.ogv
+*.ogg
+*.webm
+*.wav
+
 # End of https://www.gitignore.io/api/node,react

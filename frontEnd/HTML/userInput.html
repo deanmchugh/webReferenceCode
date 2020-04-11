@@ -1,0 +1,113 @@
+<!DOCTYPE html>  
+<html lang="en"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Learning HTML</title> 
+        <meta name="description" content="HTML fundermentals">
+        <meta name="auther" content="Dean McHugh">
+        <meta http-equiv="x-ua-compatible" content="ie=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <header> 
+        </header>
+        <main> 
+            <form novalidate> <!--html form no validation-->
+                <h2>Search</h2>
+                <input 
+                    type="search"
+                    id="searchText"
+                    placeholder="search"
+                    autofocus
+                /> <!--search input-->
+            </form>
+            <form>
+                <input 
+                    type="text"
+                    id="nameText"
+                    placeholder="First and Last Name"
+                    required
+                    pattern="(.*)\s(.*)"
+                /> <!--text input validated with pattern word space word-->
+                <input 
+                    type="email"
+                    id="emailText"
+                    placeholder="email address"
+                    required
+                /> <!--email address input with validation-->
+                <input 
+                    type="tel"
+                    id="phoneText"
+                    placeholder="phone number"
+                    required
+                /> <!--telephone number input with validation-->
+                <input 
+                    type="url"
+                    id="webText"
+                    placeholder="web address"
+                /> <!--url input and validation-->
+                <input 
+                    type="number"
+                    id="bedroomText"
+                    placeholder="# of bedrooms"
+                    min="1" max="6"
+                /> <!--number input with a min and max-->
+                <input 
+                    type="text"
+                    id="directionList"
+                    list="directionData"
+                    placeholder="direction preference"
+                />
+                <datalist id="directionData"> 
+                    <option value="North"></option>
+                    <option value="East"></option>
+                    <option value="South"></option>
+                    <option value="West"></option>
+                </datalist> <!--text input with sugested options-->
+                <input 
+                    type="color"
+                    id="mainColor"
+                    value="#ffffff"
+                /> <!--colour selection-->
+                <input 
+                    type="month"
+                    value="2016-06"
+                /> <!--month input-->
+                <input 
+                    type="week"
+                    value="2016-W26"
+                /> <!--week input-->
+                <input 
+                    type="datetime-local"
+                    value="2016-06-26T00:00:00"
+                /> <!--time input-->
+                <div> <!--submit or cancel form submition-->
+                    <button>Cancel</button>
+                    <input type="submit" value="Save" />
+                </div>
+            </form>
+            <h2>sliding input</h2>
+            <div>
+                <div>
+                    <input 
+                        type="range"
+                        id="moveRange"
+                        min="0" max="120"
+                        step="10" value="30"
+                    />
+                </div>
+                <div>
+                    <span id="moveValue">30</span>
+                </div>
+            </div>
+        </main>
+        <footer> 
+        </footer>
+        <script>
+            var moveValue = document.getElementById('moveValue');
+            document.getElementById('moveRange').addEventListener('change', function() {
+                moveValue.innerText = this.value;
+            }, false);
+        </script>
+    </body>
+</html>
