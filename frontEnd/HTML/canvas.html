@@ -1,0 +1,156 @@
+<!DOCTYPE html>  
+<html lang="en"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Learning HTML</title> 
+        <meta name="description" content="HTML fundermentals">
+        <meta name="auther" content="Dean McHugh">
+        <meta http-equiv="x-ua-compatible" content="ie=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <header> 
+        </header>
+        <main> 
+            <canvas id="canvasBasicShape" width="600" height="100"></canvas> <!--canvas with id and size-->
+            <canvas id="canvasStyledShape" width="600" height="400"></canvas>
+            <canvas id="canvasRectangles" width="600" height="400"></canvas>
+            <canvas id="canvasArcGradientText" width="600" height="400"></canvas>
+            <canvas id="canvasImage" width="600" height="400"></canvas>
+        </main>
+        <footer> 
+        </footer>
+        <!--add shape to canvas-->
+        <script>
+            const canvasBasic = document.getElementById('canvasBasicShape'); //get element
+            if (canvasBasic && canvasBasic.getContext) { //add context
+                const contextBasic = canvasBasic.getContext('2d'); //context 2D
+
+                contextBasic.beginPath(); //start position on canvas
+                contextBasic.moveTo(75, 50); //move to new location
+                contextBasic.lineTo(75, 100);
+                contextBasic.lineTo(25, 100);
+
+                contextBasic.fill(); //fill shape outlined
+            }
+        </script>
+        <!--add unique shape-->
+        <script>
+            const canvasStyled = document.getElementById('canvasStyledShape');
+            if (canvasStyled && canvasStyled.getContext) {
+                const contextStyled = canvasStyled.getContext('2d');
+
+                contextStyled.beginPath();
+                contextStyled.moveTo(100, 100);
+                contextStyled.lineTo(100, 300);
+                contextStyled.lineTo(150, 300);
+                contextStyled.lineTo(150, 155);
+                contextStyled.lineTo(205, 155);
+                contextStyled.lineTo(150, 100);
+                contextStyled.closePath();
+
+                contextStyled.fillStyle = '#0099ff' //fill colour
+                contextStyled.fill();
+
+                contextStyled.lineWidth = 6; //outline shape
+                contextStyled.lineJoin = 'round'; //rounded corners
+                contextStyled.strokeStyle = '#cccccc'; //outline colour
+                contextStyled.stroke() //fill outline
+            }
+        </script>
+        <!--add rectangles-->
+        <script>
+            const canvasRec = document.getElementById('canvasRectangles');
+            if (canvasRec && canvasRec.getContext) {
+                const contextRec = canvasRec.getContext('2d');
+
+                contextRec.fillStyle = 'rgb(500, 0, 0)';
+                contextRec.fillRect(
+                    50, //x coord 
+                    50, //y coord
+                    100, //width 
+                    100  //height
+                );
+
+                contextRec.fillStyle = 'rgba(0, 0, 500, 0.5)'; //colour with transparency
+                contextRec.fillRect(
+                    80, 80, 100, 100
+                );
+
+                contextRec.clearRect( //clear a space
+                    115, 115, 20, 20
+                );
+
+                contextRec.strokeStyle = 'rgb(51, 153, 0)';
+                contextRec.lineWidth = 6;
+                contextRec.strokeRect( //outline the clear space
+                    115, 115, 20, 20
+                )
+            }
+        </script>
+        <!--add circle with gradient colours-->
+        <script>
+            const canvasArcGradTxt = document.getElementById('canvasArcGradientText');
+            if (canvasArcGradTxt && canvasArcGradTxt.getContext) {
+                const contextArcGradTxt = canvasArcGradTxt.getContext('2D');
+
+                const g1 = contextArcGradTxt.createRadialGradient( //create colour gradent
+                    160, //x coord of grad. start
+                    120, //y coord of grad. start
+                    0, //radius of start circle
+                    320, //x coord of grad. end
+                    220, //y coord of grad. end
+                    300 //radius of the end circle
+                );
+                g1.addColorStop(0, '#ffffff'); //start colour 0
+                //gradient colours 0.1 - 0.9
+                g1.addColorStop(1, '#999999'); //end colour 1
+
+                contextArcGradTxt.lineWidth = 0;
+                contextArcGradTxt.strokeStyle = '#000000';
+                contextArcGradTxt.fillStyle = g1;
+                contextArcGradTxt.beginPath();
+                contextArcGradTxt.arc( //create circle
+                    180, //x coord of arc start
+                    180, //y coord of arc start
+                    160, //radius
+                    0, //start angle
+                    Math.PI * 2, //end angle
+                    true //direction. anticlockwise
+                );
+                contextArcGradTxt.fill();
+
+                const g2 = contextArcGradTxt.createRadialGradient(
+                    360, 320, 0, 260, 220, 200
+                );
+                g2.addColorStop(0, '#ffffff');
+                g2.addColorStop(1, '#999999');
+
+                contextArcGradTxt.fillStyle = g2;
+                contextArcGradTxt.beginPath();
+                contextArcGradTxt.arc(
+                    180, 180, 130, 0, Math.PI * 2, true
+                );
+                contextArcGradTxt.fill();
+
+                contextArcGradTxt.fillStyle = '#ffffff';
+                contextArcGradTxt.font = '280px Arial'; //font of text
+                contextArcGradTxt.fillText('C', 80, 280); //add text to canvas
+            }
+        </script>
+        <!--add image to canvas-->
+        <script>
+            const canvasImg = document.getElementById('canvasImage');
+            if (canvasImg && canvasImg.getContext) { 
+                const contextImg = canvasImg.getContext('2d'); 
+
+                const img = new Image(); //create image
+                img.onload = () => {
+                    contextImg.drawImage(img, 0, 0);
+                };
+                img.src = '../images/flowers.jpg';
+                contextImg.scale(.1, .1); //scale image to 0.1 orig. size
+            }
+        </script>
+    </body>
+</html>
